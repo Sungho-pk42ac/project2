@@ -1,0 +1,337 @@
+/* ── 기본 리셋 & 테마 ── */
+:root {
+  --bg: #0b0f1a;
+  --bg-card: #151c2c;
+  --bg-card-2: #1b2438;
+  --border: #283450;
+  --text: #e8edf7;
+  --text-dim: #95a3c0;
+  --accent: #6ea8fe;
+  --accent-2: #a78bfa;
+  --low: #34d399;
+  --mid: #fbbf24;
+  --high: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(1200px 600px at 50% -10%, #1a2238 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic",
+    Roboto, sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+/* ── 헤더 ── */
+.hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.subtitle {
+  margin-top: 10px;
+  color: var(--text-dim);
+  font-size: 1.05rem;
+}
+.disclaimer {
+  margin-top: 6px;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+/* ── 입력 폼 ── */
+.form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+textarea:disabled {
+  opacity: 0.6;
+}
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.examples {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.chip {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.chip:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.submit {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #0b0f1a;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
+  white-space: nowrap;
+}
+.submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── 결과 영역 ── */
+.results {
+  margin-top: 32px;
+}
+.status {
+  text-align: center;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+
+/* 종합 배너 */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: linear-gradient(135deg, #1c2742, #161d30);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin-bottom: 22px;
+}
+.banner-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 96px;
+  padding-right: 22px;
+  border-right: 1px solid var(--border);
+}
+.score-num {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.score-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+.banner-text h2 {
+  font-size: 1.2rem;
+}
+.banner-text p {
+  color: var(--text-dim);
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+/* 카드 그리드 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+}
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+.card-head h3 {
+  font-size: 1.02rem;
+}
+.card p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+.card ul {
+  list-style: none;
+  margin-top: 10px;
+}
+.card ul li {
+  font-size: 0.86rem;
+  padding: 6px 0;
+  border-top: 1px solid var(--border);
+}
+
+/* 배지 */
+.badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.badge-low {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--low);
+}
+.badge-mid {
+  background: rgba(251, 191, 36, 0.15);
+  color: var(--mid);
+}
+.badge-high {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--high);
+}
+
+/* 경쟁자 리스트 */
+.comp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.comp-top a,
+.comp-name {
+  font-weight: 600;
+  color: var(--text);
+}
+.comp-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.sim {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.comp-desc {
+  margin-top: 4px;
+}
+.comp-diff {
+  margin-top: 3px;
+  color: var(--accent-2) !important;
+  font-size: 0.82rem !important;
+}
+
+/* 수요 신호 */
+.audience {
+  font-size: 0.88rem !important;
+  margin-bottom: 4px;
+}
+.signal-list li {
+  display: flex;
+  flex-direction: column;
+}
+.signal-text {
+  color: var(--text);
+}
+.signal-meta {
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  margin-top: 2px;
+}
+
+/* 에러 카드 */
+.error-card {
+  margin-top: 24px;
+  border-color: var(--high);
+  background: rgba(248, 113, 113, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.error-card strong {
+  color: var(--high);
+}
+.retry {
+  background: var(--high);
+  color: #0b0f1a;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ── 스켈레톤 ── */
+.skeleton .sk-line {
+  height: 12px;
+  border-radius: 6px;
+  margin: 10px 0;
+  background: linear-gradient(90deg, #1b2438 25%, #243049 50%, #1b2438 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite;
+}
+.w40 { width: 40%; }
+.w60 { width: 60%; }
+.w80 { width: 80%; }
+.w90 { width: 90%; }
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 560px) {
+  .banner { flex-direction: column; text-align: center; }
+  .banner-score { border-right: none; border-bottom: 1px solid var(--border); padding: 0 0 14px; }
+}
