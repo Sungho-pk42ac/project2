@@ -1,0 +1,20 @@
+# oh-my-claudecode 상태/캐시 (개인 환경 종속)
+.omc/
+
+# 의존성
+node_modules/
+
+# 빌드 산출물
+dist/
+build/
+
+# 환경 변수
+.env
+.env.local
+
+# 로그
+*.log
+
+# OS 파일
+.DS_Store
+Thumbs.db
